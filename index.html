@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The this Keyword — JS Practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="./style.css" rel="stylesheet">
+
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <p class="eyebrow">JavaScript · Unit Practice</p>
+    <h1>The <span>this</span> Keyword</h1>
+  </div>
+  <div class="score-badge">
+    <div class="num" id="score-display">0 / 5</div>
+    <div class="label">Tasks Passing</div>
+  </div>
+</header>
+
+<main>
+
+  <div class="intro">
+    <h2>Overview</h2>
+    <p>
+      In JavaScript, <span class="keyword">this</span> refers to the object that is currently executing a function.
+      Inside an <strong>object method</strong>, <span class="keyword">this</span> points to that object.
+      Inside a <strong>class</strong>, <span class="keyword">this</span> points to the instance being created or used.
+    </p>
+    <p>
+      Complete all five tasks in <span class="keyword">script.js</span>. Every task is isolated — fill in the
+      <span class="keyword">// TODO</span> sections using <span class="keyword">this</span> to access
+      properties and methods. Click <strong>Run Tests</strong> to check your work.
+    </p>
+  </div>
+
+  <div class="run-bar">
+    <button id="run-btn">▶ Run Tests</button>
+  </div>
+
+  <!-- Task 1 -->
+  <div class="task" id="task-1">
+    <div class="task-header">
+      <span class="task-num">TASK 01</span>
+      <span class="task-title">Object Method — Basic Property Access</span>
+      <div class="status-dot"></div>
+    </div>
+    <div class="task-body">
+      <p>
+        A <span class="keyword">person</span> object has <span class="keyword">name</span> and
+        <span class="keyword">age</span> properties. Complete the <span class="keyword">greet()</span>
+        method so it uses <span class="keyword">this</span> to return an introduction string.
+      </p>
+      <div class="requirements">
+        <div class="req-label">Requirements</div>
+        <ul>
+          <li>Use <span class="keyword">this.name</span> and <span class="keyword">this.age</span> inside the method</li>
+          <li>Return the string <code>"Hi, I'm [name] and I'm [age] years old."</code></li>
+          <li>Do <strong>not</strong> hard-code the values — use <span class="keyword">this</span></li>
+        </ul>
+      </div>
+      <div class="test-results" id="results-1"></div>
+    </div>
+  </div>
+
+  <!-- Task 2 -->
+  <div class="task" id="task-2">
+    <div class="task-header">
+      <span class="task-num">TASK 02</span>
+      <span class="task-title">Object Method — Calling Other Methods with this</span>
+      <div class="status-dot"></div>
+    </div>
+    <div class="task-body">
+      <p>
+        A <span class="keyword">counter</span> object tracks a count. Complete
+        <span class="keyword">increment()</span>, <span class="keyword">decrement()</span>,
+        <span class="keyword">reset()</span>, and <span class="keyword">getCount()</span>
+        using <span class="keyword">this</span> to read and update the shared <span class="keyword">count</span> property.
+      </p>
+      <div class="requirements">
+        <div class="req-label">Requirements</div>
+        <ul>
+          <li>All four methods must use <span class="keyword">this.count</span></li>
+          <li><span class="keyword">increment</span> adds the given amount; <span class="keyword">decrement</span> subtracts it</li>
+          <li><span class="keyword">reset()</span> sets the count back to <span class="keyword">0</span></li>
+          <li><span class="keyword">getCount()</span> returns the current value</li>
+        </ul>
+      </div>
+      <div class="test-results" id="results-2"></div>
+    </div>
+  </div>
+
+  <!-- Task 3 -->
+  <div class="task" id="task-3">
+    <div class="task-header">
+      <span class="task-num">TASK 03</span>
+      <span class="task-title">Constructor Function — Building with this</span>
+      <div class="status-dot"></div>
+    </div>
+    <div class="task-body">
+      <p>
+        Complete the <span class="keyword">Animal</span> constructor function so it uses
+        <span class="keyword">this</span> to store the <span class="keyword">name</span> and
+        <span class="keyword">sound</span> arguments as properties. Then complete the
+        <span class="keyword">speak()</span> prototype method.
+      </p>
+      <div class="requirements">
+        <div class="req-label">Requirements</div>
+        <ul>
+          <li>Use <span class="keyword">this.name</span> and <span class="keyword">this.sound</span> in the constructor</li>
+          <li><span class="keyword">speak()</span> must return <code>"[name] says [sound]!"</code> using <span class="keyword">this</span></li>
+          <li>Create instances with <span class="keyword">new Animal(...)</span> to test it</li>
+        </ul>
+      </div>
+      <div class="test-results" id="results-3"></div>
+    </div>
+  </div>
+
+  <!-- Task 4 -->
+  <div class="task" id="task-4">
+    <div class="task-header">
+      <span class="task-num">TASK 04</span>
+      <span class="task-title">Class — Properties, Methods, and this</span>
+      <div class="status-dot"></div>
+    </div>
+    <div class="task-body">
+      <p>
+        Complete the <span class="keyword">Rectangle</span> class. The constructor receives
+        <span class="keyword">width</span> and <span class="keyword">height</span>.
+        Complete <span class="keyword">area()</span>, <span class="keyword">perimeter()</span>,
+        and <span class="keyword">describe()</span> — the last one must call the other two
+        using <span class="keyword">this</span>.
+      </p>
+      <div class="requirements">
+        <div class="req-label">Requirements</div>
+        <ul>
+          <li>Store <span class="keyword">width</span> and <span class="keyword">height</span> on <span class="keyword">this</span> in the constructor</li>
+          <li><span class="keyword">area()</span> returns <code>width × height</code></li>
+          <li><span class="keyword">perimeter()</span> returns <code>2 × (width + height)</code></li>
+          <li><span class="keyword">describe()</span> calls <span class="keyword">this.area()</span> and <span class="keyword">this.perimeter()</span> and returns a summary string</li>
+        </ul>
+      </div>
+      <div class="test-results" id="results-4"></div>
+    </div>
+  </div>
+
+  <!-- Task 5 -->
+  <div class="task" id="task-5">
+    <div class="task-header">
+      <span class="task-num">TASK 05</span>
+      <span class="task-title">Class — Method Chaining with this</span>
+      <div class="status-dot"></div>
+    </div>
+    <div class="task-body">
+      <p>
+        Complete the <span class="keyword">ShoppingCart</span> class. Returning
+        <span class="keyword">this</span> from a method allows <strong>method chaining</strong>
+        — calling multiple methods in a row on the same object.
+        Complete <span class="keyword">addItem()</span>, <span class="keyword">applyDiscount()</span>,
+        and <span class="keyword">getTotal()</span>.
+      </p>
+      <div class="requirements">
+        <div class="req-label">Requirements</div>
+        <ul>
+          <li><span class="keyword">addItem(name, price)</span> pushes an item object into <span class="keyword">this.items</span> and returns <span class="keyword">this</span></li>
+          <li><span class="keyword">applyDiscount(percent)</span> stores the discount on <span class="keyword">this</span> and returns <span class="keyword">this</span></li>
+          <li><span class="keyword">getTotal()</span> sums all item prices, applies the discount percentage, and returns the final number</li>
+          <li>Chaining must work: <code>cart.addItem(...).addItem(...).applyDiscount(10).getTotal()</code></li>
+        </ul>
+      </div>
+      <div class="test-results" id="results-5"></div>
+    </div>
+  </div>
+
+</main>
+
+<footer>Web Development · JavaScript Practice · <em>this</em> Keyword</footer>
+
+<script src="script.js"></script>
+<script>
+  // ── Test Runner ──────────────────────────────────────────────
+
+  function renderResults(taskId, tests) {
+    const container = document.getElementById(`results-${taskId}`);
+    const card = document.getElementById(`task-${taskId}`);
+    container.innerHTML = '';
+
+    const allPass = tests.every(t => t.pass);
+    card.classList.toggle('pass', allPass);
+    card.classList.toggle('fail', !allPass);
+
+    tests.forEach(({ pass, msg }) => {
+      const line = document.createElement('div');
+      line.className = `test-line ${pass ? 't-pass' : 't-fail'}`;
+      line.innerHTML = `
+        <span class="test-icon">${pass ? '✓' : '✗'}</span>
+        <span class="test-msg">${msg}</span>
+      `;
+      container.appendChild(line);
+    });
+
+    return allPass ? 1 : 0;
+  }
+
+  function runTests() {
+    let passed = 0;
+
+    // ── Task 1 ──
+    try {
+      const t1 = [];
+      const result = person.greet();
+      t1.push({ pass: typeof result === 'string',              msg: 'greet() returns a string' });
+      t1.push({ pass: result.includes('Alex'),                 msg: 'Greeting includes the name from this.name' });
+      t1.push({ pass: result.includes('17'),                   msg: 'Greeting includes the age from this.age' });
+      t1.push({ pass: /I'm Alex/i.test(result),                msg: "Greeting format: contains \"I'm Alex\"" });
+      passed += renderResults(1, t1);
+    } catch(e) {
+      renderResults(1, [{ pass: false, msg: `Error: ${e.message}` }]);
+    }
+
+    // ── Task 2 ──
+    try {
+      const t2 = [];
+      counter.count = 0;
+      counter.increment(5);
+      t2.push({ pass: counter.getCount() === 5,               msg: 'getCount() returns 5 after increment(5)' });
+      counter.increment(3);
+      t2.push({ pass: counter.getCount() === 8,               msg: 'getCount() returns 8 after second increment(3)' });
+      counter.decrement(2);
+      t2.push({ pass: counter.getCount() === 6,               msg: 'getCount() returns 6 after decrement(2)' });
+      counter.reset();
+      t2.push({ pass: counter.getCount() === 0,               msg: 'getCount() returns 0 after reset()' });
+      passed += renderResults(2, t2);
+    } catch(e) {
+      renderResults(2, [{ pass: false, msg: `Error: ${e.message}` }]);
+    }
+
+    // ── Task 3 ──
+    try {
+      const t3 = [];
+      const dog = new Animal('Rex', 'woof');
+      const cat = new Animal('Luna', 'meow');
+      t3.push({ pass: dog.name === 'Rex',                      msg: 'new Animal sets this.name correctly' });
+      t3.push({ pass: dog.sound === 'woof',                    msg: 'new Animal sets this.sound correctly' });
+      t3.push({ pass: dog.speak() === 'Rex says woof!',        msg: 'speak() returns "Rex says woof!"' });
+      t3.push({ pass: cat.speak() === 'Luna says meow!',       msg: 'speak() works for a different Animal instance' });
+      passed += renderResults(3, t3);
+    } catch(e) {
+      renderResults(3, [{ pass: false, msg: `Error: ${e.message}` }]);
+    }
+
+    // ── Task 4 ──
+    try {
+      const t4 = [];
+      const r = new Rectangle(6, 4);
+      t4.push({ pass: r.width === 6 && r.height === 4,         msg: 'Constructor stores width and height on this' });
+      t4.push({ pass: r.area() === 24,                         msg: 'area() returns 24 for a 6×4 rectangle' });
+      t4.push({ pass: r.perimeter() === 20,                    msg: 'perimeter() returns 20 for a 6×4 rectangle' });
+      const desc = r.describe();
+      t4.push({ pass: typeof desc === 'string' && desc.includes('24') && desc.includes('20'),
+                                                                msg: 'describe() returns a string with area and perimeter values' });
+      passed += renderResults(4, t4);
+    } catch(e) {
+      renderResults(4, [{ pass: false, msg: `Error: ${e.message}` }]);
+    }
+
+    // ── Task 5 ──
+    try {
+      const t5 = [];
+      const cart = new ShoppingCart();
+      cart.addItem('Pencil', 1.50);
+      t5.push({ pass: cart.items.length === 1,                 msg: 'addItem() pushes an item into this.items' });
+      cart.addItem('Notebook', 4.00);
+      t5.push({ pass: cart.items.length === 2,                 msg: 'Second addItem() adds to this.items correctly' });
+
+      const totalNoDiscount = cart.getTotal();
+      t5.push({ pass: Math.abs(totalNoDiscount - 5.50) < 0.01, msg: 'getTotal() returns 5.50 with no discount' });
+
+      cart.applyDiscount(10);
+      const totalWithDiscount = cart.getTotal();
+      t5.push({ pass: Math.abs(totalWithDiscount - 4.95) < 0.01, msg: 'getTotal() returns 4.95 after 10% discount' });
+
+      // chaining test
+      const cart2 = new ShoppingCart();
+      const chainTotal = cart2.addItem('Pen', 2.00).addItem('Ruler', 3.00).applyDiscount(20).getTotal();
+      t5.push({ pass: Math.abs(chainTotal - 4.00) < 0.01,      msg: 'Method chaining works: addItem().addItem().applyDiscount().getTotal()' });
+
+      passed += renderResults(5, t5);
+    } catch(e) {
+      renderResults(5, [{ pass: false, msg: `Error: ${e.message}` }]);
+    }
+
+    document.getElementById('score-display').textContent = `${passed} / 5`;
+  }
+
+  document.getElementById('run-btn').addEventListener('click', runTests);
+</script>
+</body>
+</html>

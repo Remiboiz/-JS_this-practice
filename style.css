@@ -1,0 +1,237 @@
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0e0f14;
+      --surface:   #16181f;
+      --border:    #2a2d38;
+      --muted:     #4a4f63;
+      --text:      #d4d7e3;
+      --heading:   #f0f2ff;
+      --accent:    #7c6af7;
+      --accent-lt: #a496ff;
+      --green:     #3ecf8e;
+      --red:       #f26565;
+      --yellow:    #f0c040;
+      --code-bg:   #1b1d27;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    /* ── header ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .header-left .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: var(--accent-lt);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    header h1 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--heading);
+    }
+    header h1 span { color: var(--accent-lt); }
+
+    .score-badge {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 22px;
+      text-align: center;
+      min-width: 110px;
+    }
+    .score-badge .num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--heading);
+      line-height: 1;
+    }
+    .score-badge .label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    /* ── layout ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* ── intro card ── */
+    .intro {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 36px;
+    }
+    .intro h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 10px;
+    }
+    .intro p { color: var(--text); margin-bottom: 8px; }
+    .intro p:last-child { margin-bottom: 0; }
+    .intro strong { color: var(--heading); }
+    .keyword {
+      font-family: 'IBM Plex Mono', monospace;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 13px;
+      color: var(--accent-lt);
+    }
+
+    /* ── task cards ── */
+    .task {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      transition: border-color .25s;
+    }
+    .task.pass { border-color: var(--green); }
+    .task.fail { border-color: var(--red); }
+
+    .task-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .task-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px 9px;
+      white-space: nowrap;
+    }
+    .task-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--heading);
+      flex: 1;
+    }
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--muted);
+      flex-shrink: 0;
+      transition: background .3s;
+    }
+    .task.pass .status-dot { background: var(--green); box-shadow: 0 0 6px var(--green); }
+    .task.fail .status-dot { background: var(--red); box-shadow: 0 0 6px var(--red); }
+
+    .task-body { padding: 20px 24px; }
+    .task-body p { margin-bottom: 12px; }
+    .task-body p:last-of-type { margin-bottom: 0; }
+
+    .requirements {
+      margin-top: 14px;
+      padding: 14px 18px;
+      background: var(--code-bg);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+    }
+    .requirements .req-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--accent-lt);
+      margin-bottom: 8px;
+    }
+    .requirements ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .requirements li::before {
+      content: '→ ';
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--accent);
+      font-size: 12px;
+    }
+    .requirements li { font-size: 13.5px; }
+
+    /* ── test results ── */
+    .test-results {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .test-line {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .test-icon { flex-shrink: 0; }
+    .test-line.t-pass .test-icon { color: var(--green); }
+    .test-line.t-fail .test-icon { color: var(--red); }
+    .test-line.t-pass .test-msg { color: #8ec9a8; }
+    .test-line.t-fail .test-msg { color: #d98080; }
+
+    /* ── run button ── */
+    .run-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 28px;
+    }
+    #run-btn {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 11px 24px;
+      cursor: pointer;
+      letter-spacing: .04em;
+      transition: background .2s, transform .1s;
+    }
+    #run-btn:hover { background: var(--accent-lt); }
+    #run-btn:active { transform: scale(.97); }
+
+    /* ── footer ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
